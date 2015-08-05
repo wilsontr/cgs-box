@@ -1,0 +1,33 @@
+* /Users/wilsontr/git/cgs-box/circuits/serge spring reverb.asc
+V1 V+ 0 12
+V2 V- 0 -12
+C1 V- 0 10n
+V3 N007 0 SINE(0 3 110 0 1 0)
+R1 N007 0 100k
+C2 P001 N007 10n
+R2 N008 P001 1m
+R3 N011 N008 100k
+C3 N011 N008 10pF
+R4 N011 V- 220
+Q1 N005 P002 N011 0 2N3565
+R5 V+ N005 6.8k
+C4 N005 0 10n
+L1 N005 N006 0.304715 Rser=1925
+R6 N006 0 10k
+C5 N006 0 2.2nF
+Q2 N010 N006 N001 0 2N4249
+R7 V+ N001 100k
+C6 N001 0 22µ Rser=1 Lser=0 mfg="Nichicon" pn="UPG1J220MPH" type="Al electrolytic"
+C7 N004 N002 47pF
+C8 N003 N009 22µ Rser=1 Lser=0 mfg="Nichicon" pn="UPG1J220MPH" type="Al electrolytic"
+R8 N003 N002 100k
+R9 N003 N004 330
+XX3 NC_01 N008 V+ V- P002 LM3900
+XX1 N002 N010 V+ V- N004 LM3900
+.model NPN NPN
+.model PNP PNP
+.lib /Users/wilsontr/Library/Application Support/LTspice/lib/cmp/standard.bjt
+.op
+.lib LM3900.MOD
+.backanno
+.end
